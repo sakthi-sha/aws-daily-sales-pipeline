@@ -1,0 +1,14 @@
+{
+  "Comment": "Daily Sales Reporting Pipeline",
+  "StartAt": "RunDailySalesGlueJob",
+  "States": {
+    "RunDailySalesGlueJob": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::glue:startJobRun.sync",
+      "Parameters": {
+        "JobName": "daily-sales-transformation"
+      },
+      "End": true
+    }
+  }
+}
